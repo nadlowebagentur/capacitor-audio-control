@@ -9,10 +9,20 @@ import Capacitor
 public class AudioControlPlugin: CAPPlugin {
     private let implementation = AudioControl()
 
-    @objc func echo(_ call: CAPPluginCall) {
+    @objc func setVolume(_ call: CAPPluginCall) {
         let value = call.getString("value") ?? ""
+
+        if ( value.isEmpty ) {
+            call.reject("Empty value")
+            return
+        }
+        
+        let newValue = String(implementation.setVolume(
+            (value as NSString).floatValue
+        ))
+
         call.resolve([
-            "value": implementation.echo(value)
+            "value": newValue
         ])
     }
 }
