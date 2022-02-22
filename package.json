@@ -1,6 +1,6 @@
 {
   "name": "@nadlowebagentur/audio-control",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Control IOS/Android volume with Capacitor",
   "main": "dist/plugin.cjs.js",
   "module": "dist/esm/index.js",
