@@ -12,11 +12,11 @@ public class AudioControlPlugin: CAPPlugin {
     @objc func setVolume(_ call: CAPPluginCall) {
         let value = call.getString("value") ?? ""
 
-        if ( value.isEmpty ) {
+        if  value.isEmpty {
             call.reject("Empty value")
             return
         }
-        
+
         let newValue = String(implementation.setVolume(
             (value as NSString).floatValue
         ))
